@@ -3,6 +3,8 @@ import types from './types';
 
 const storeInitialState = {
   isFetching: false,
+  data: undefined,
+  error: undefined
 }
 
 export const store = (state=storeInitialState, action) => {
@@ -18,11 +20,15 @@ export const store = (state=storeInitialState, action) => {
       let json = action.json
       return Object.assign({}, state, {
           isFetching: false,
-          details: {
+          data: {
             "name": json.name,
-            "logo": json.logo,
-            "backgroundColor": json.background_color,
-            "buttonColor": json.button_color
+            "email": json.email,
+            "style": {
+              "logo": json.style.logo,
+              "theme_color": json.style.theme_color,
+              "accent_color": json.style.accent_color
+            },
+            "tags": json.tags
           }
       })
 
@@ -40,6 +46,8 @@ export const store = (state=storeInitialState, action) => {
 
 const spotlightInitialState = {
   isFetching: false,
+  images: undefined,
+  error: undefined
 }
 export const spotlight = (state=spotlightInitialState, action) => {
 
@@ -67,7 +75,7 @@ export const spotlight = (state=spotlightInitialState, action) => {
   }
 }
 
-export const tagFilter = (state = "popular", action) => {
+export const selectedTag = (state = "popular", action) => {
   if(action.tag){
     return action.tag
   }

@@ -28,7 +28,7 @@ class ProductContainer extends Component{
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const { productSlug } = ownProps.match.params
+  const productSlug = ownProps.match.params.slug;
   const productIsFetching = state.product.isFetching;
   const products = state.product.items;
   return { productSlug, productIsFetching, products }

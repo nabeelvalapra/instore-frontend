@@ -13,7 +13,7 @@ export function fetchStoreDetails() {
             }
             return response.json()
           })
-          .then(json => dispatch(action.fetchStoreDetailSuccess(json[0])))
+          .then(json => dispatch(action.fetchStoreDetailSuccess(json)))
           .catch(error => dispatch(action.fetchStoreDetailFailed(error.message)))
     }
 }

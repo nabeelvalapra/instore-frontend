@@ -23,20 +23,20 @@ class HomeContainer extends Component{
     const {
       store, product, spotlight, tagFilter, setTagFilter
     } = this.props
-
+    
     return (
       <>
         {/* Displays <Header/> if store-fetch is success */}
-        {(!store.isFetching && store.details)
+        {(!store.isFetching && store.data)
           ? (
             <>
               <Helmet>
-                <title>{store.details.name}</title>
-                <link rel="icon" href={store.details.logo} />
+                <title>{store.data.name}</title>
+                <link rel="icon" href={store.data.style.logo} />
               </Helmet>
               <Header
-                backgroundColor={store.details.backgroundColor}
-                logo={store.details.logo}
+                backgroundColor={store.data.style.theme_color}
+                logo={store.data.style.logo}
              />
             </>
           )

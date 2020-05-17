@@ -15,7 +15,7 @@ class App extends Component {
           <Switch>
             <Route exact path='/' component={HomeContainer} />
             {/* <Route path='/product/:productSlug/' component={requireAuth(ProductContainer)}/> */}
-            <Route path='/product/:productSlug/' component={ProductContainer}/>
+            <Route path='/product/:slug/' component={ProductContainer}/>
           </Switch>
         </ConnectedRouter>
       </React.Fragment>
