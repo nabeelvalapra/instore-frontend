@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { fetchStoreDetails, fetchStoreSpotlight } from './duck/operations';
-import { setTagFilter } from './duck/actions';
+import { setTag } from './duck/actions';
 import { fetchProducts } from '../product/duck/actions';
 import { Helmet } from "react-helmet";
 
 import Header from './components/Header';
 import Spotlights from './components/Spotlight'
-import { TagFilter, ProductList } from './components/ProductTab'
+import { ProductList } from './components/HomeProducts'
+import { TagFilter } from './components/Tags'
 
 
 class HomeContainer extends Component{
@@ -21,10 +22,10 @@ class HomeContainer extends Component{
 
   render() {
     const {
-      store, product, spotlight, tagFilter, setTagFilter
+      store, product, spotlight, selectedTag, setTag
     } = this.props
 
-    let helmetRender=<></>, headerRender, tagBarRender=<></>;
+    let helmetRender=<></>, headerRender=<></>, tagBarRender=<></>;
     if(!store.isFetching && store.data){
       helmetRender = (
         <Helmet>
@@ -40,9 +41,10 @@ class HomeContainer extends Component{
       )
       tagBarRender = (
         <TagFilter
-          setTagFilter={setTagFilter}
+          setTag={setTag}
+          tags={store.data.tags}
           buttonColor={store.data.style.themeColor}
-          activeTag={tagFilter}
+          activeTag={selectedTag}
         />
       )
     } else if (!store.isFetching && !store.error) {
@@ -63,12 +65,10 @@ class HomeContainer extends Component{
     let productRender;
     if(!product.isFetching && product.items){
       productRender = (
-        <>
-          <ProductList
-            products={product.items}
-            tagFilter={tagFilter}
-          />
-        </>
+        <ProductList
+          products={product.items}
+          selectedTag={selectedTag}
+        />
       )
     } else if (!product.isFetching && !product.items){
       productRender = <p>Fetching product details ...</p>
@@ -91,9 +91,9 @@ class HomeContainer extends Component{
 }
 
 const mapStateToProps = state => {
-  const { store, spotlight, product, tagFilter } = state;
+  const { store, spotlight, product, selectedTag } = state;
   return {
-    store, product, spotlight, tagFilter
+    store, product, spotlight, selectedTag 
   }
 };
 
@@ -102,7 +102,7 @@ const mapDispatchToProps = dispatch => {
     fetchStoreDetails: () => dispatch(fetchStoreDetails()),
     fetchStoreSpotlight: () => dispatch(fetchStoreSpotlight()),
     fetchProducts: () => dispatch(fetchProducts()),
-    setTagFilter: (tag) => dispatch(setTagFilter(tag))
+    setTag: (tag) => dispatch(setTag(tag))
   }
 };
 

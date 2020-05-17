@@ -40,9 +40,9 @@ export function fetchStoreSpotlightFailed(errorMsg) {
   }
 }
 
-export function setTagFilter(tag) {
+export function setTag(tag) {
   return {
-    type: types.SET_TAG_FILTER,
+    type: types.SET_TAG,
     tag
   }
 }
