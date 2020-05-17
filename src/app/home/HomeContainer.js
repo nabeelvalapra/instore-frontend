@@ -5,6 +5,7 @@ import { setTagFilter } from './duck/actions';
 import { fetchProducts } from '../product/duck/actions';
 import { Helmet } from "react-helmet";
 
+import LoadingSpinner from 'instore-frontcore/lib/common/components'
 import Header from './components/Header';
 import Spotlights from './components/Spotlight'
 import { TagFilter, ProductList } from './components/ProductTab'
@@ -42,7 +43,7 @@ class HomeContainer extends Component{
           )
           : (
             (!store.isFetching && store.error)
-            ? <p> { store.error } </p> : <p> Fetching store details...</p>
+            ? <LoadingSpinner/> : <p> Fetching store details...</p>
           )
         }
 
