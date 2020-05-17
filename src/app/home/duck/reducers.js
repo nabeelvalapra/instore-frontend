@@ -25,8 +25,8 @@ export const store = (state=storeInitialState, action) => {
             "email": json.email,
             "style": {
               "logo": json.style.logo,
-              "theme_color": json.style.theme_color,
-              "accent_color": json.style.accent_color
+              "themeColor": json.style.theme_color,
+              "accentColor": json.style.accent_color
             },
             "tags": json.tags
           }

@@ -12,7 +12,7 @@ import { TagFilter, ProductList } from './components/ProductTab'
 
 class HomeContainer extends Component{
   componentDidMount() {
-    if(!this.props.store.isFetching && !this.props.store.details){
+    if(!this.props.store.isFetching && !this.props.store.data){
       this.props.fetchStoreDetails()
       this.props.fetchStoreSpotlight()
       this.props.fetchProducts()
@@ -23,61 +23,67 @@ class HomeContainer extends Component{
     const {
       store, product, spotlight, tagFilter, setTagFilter
     } = this.props
-    
+
+    let helmetRender=<></>, headerRender, tagBarRender=<></>;
+    if(!store.isFetching && store.data){
+      helmetRender = (
+        <Helmet>
+          <title>{store.data.name}</title>
+          <link rel="icon" href={store.data.style.logo} />
+        </Helmet>
+      )
+      headerRender = (
+        <Header
+          backgroundColor={store.data.style.themeColor}
+          logo={store.data.style.logo}
+        />
+      )
+      tagBarRender = (
+        <TagFilter
+          setTagFilter={setTagFilter}
+          buttonColor={store.data.style.themeColor}
+          activeTag={tagFilter}
+        />
+      )
+    } else if (!store.isFetching && !store.error) {
+      headerRender = <p>Fetching store details...</p>  
+    } else {
+      headerRender = <p>{store.error}</p>
+    }
+
+    let spotlightRender;
+    if(!spotlight.isFetching && spotlight.images){
+      spotlightRender = <Spotlights spotlights={spotlight.images}/>
+    } else if (!spotlight.isFetching && !spotlight.images) {
+      spotlightRender = <p>Fetching spotlight details...</p>
+    } else {
+      spotlightRender = <p>{ spotlight.error }</p>
+    }
+
+    let productRender;
+    if(!product.isFetching && product.items){
+      productRender = (
+        <>
+          <ProductList
+            products={product.items}
+            tagFilter={tagFilter}
+          />
+        </>
+      )
+    } else if (!product.isFetching && !product.items){
+      productRender = <p>Fetching product details ...</p>
+    } else {
+      productRender = <p>{ product.error }</p>
+    }
+
     return (
       <>
-        {/* Displays <Header/> if store-fetch is success */}
-        {(!store.isFetching && store.data)
-          ? (
-            <>
-              <Helmet>
-                <title>{store.data.name}</title>
-                <link rel="icon" href={store.data.style.logo} />
-              </Helmet>
-              <Header
-                backgroundColor={store.data.style.theme_color}
-                logo={store.data.style.logo}
-             />
-            </>
-          )
-          : (
-            (!store.isFetching && store.error)
-            ? <p> { store.error } </p> : <p> Fetching store details...</p>
-          )
-        }
-
+        {helmetRender}
+        {headerRender}
 		 	  <section id="content">
-          {/* Displays <Spotlight/> if spotlight-fetch is success */}
-          {(!spotlight.isFetching && spotlight.images)
-            ? (
-              <Spotlights spotlights={spotlight.images}/>
-            )
-            : (
-              (!spotlight.isFetching && spotlight.images)
-              ? <p> { spotlight.error } </p> : <p> Fetching spotlight details...</p>
-            )
-          }
-
-          {/* Displays <TagFilter/> & <ProductList/> if product-fetch is success */}
-          {(!product.isFetching && product.items && store.details)
-            ? (
-              <>
-                <TagFilter
-                  setTagFilter={setTagFilter}
-                  buttonColor={store.details.buttonColor}
-                  activeTag={tagFilter}
-                />
-                <ProductList
-                  products={product.items}
-                  tagFilter={tagFilter}
-                />
-              </>
-            )
-            : (
-              (!product.isFetching && product.error)
-              ? <p> { product.error } </p> : <p> Fetching product details ...</p>
-            )
-          }
+          { spotlightRender }
+          { tagBarRender }
+          { productRender }
         </section>
       </>
     )
