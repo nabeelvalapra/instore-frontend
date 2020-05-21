@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import '../../assets/css/bootstrap.min.css'
 import '../../assets/css/style.css'
-
+import whatsappLogo from '../../assets/images/whatsapp.svg'
 
 class ProductDetail extends Component{
     render() {
@@ -14,12 +14,6 @@ class ProductDetail extends Component{
 	 	        <div className="right_content">
               <section id="content">
                 <div id="spotlight">
-                  <div className="top">
-                    <div className="container">
-                      <Link className="back" to="/"></Link>
-                      {/* <a href className="wishlist_link" /> */}
-                    </div>
-                  </div>
                   <div className="inner_banner">
                     <div className="slider_wrap">
                       <div className="col">
@@ -47,6 +41,7 @@ class ProductDetail extends Component{
                       <div className="row">
                         <div className="col-xs-7">
                           {/* <form action> */}
+                          {/* 
                             <span className="quatity_change">
                               <span className="minus">-</span>
                               <input
@@ -57,18 +52,21 @@ class ProductDetail extends Component{
                               />
                               <span className="add">+</span>
                             </span>
+                          */}
                           {/* </form> */}
                         </div>
-                        <div className="col-xs-4">
+                        <div>
                           <span className="price">Rs {product.price}</span>
                         </div>
                       </div>
                       <div className="buttons row">
+                        {/* 
                         <div className="col-xs-4">
                           <Link className="button2 icon" to="/">
                             <span className="wishlist_link" />
                           </Link>
                         </div>
+                        */}
                         {/* <div className="col-xs-8">
                           <a href className="button3">
                             Add to Cart
@@ -81,6 +79,14 @@ class ProductDetail extends Component{
                 </div>
               </section>
             </div>
+            <div className="details_bottom">
+					    <Link to="/" className="button5">
+				 		    <img src={whatsappLogo} alt="whatsapp"/>
+				 	    </Link>
+				 	    <span className="button6">
+			 			    Available
+			 		    </span>
+			 	    </div>
           </section>
         </>
       )
