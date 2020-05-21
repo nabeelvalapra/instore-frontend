@@ -33,7 +33,9 @@ export class TagFilter extends Component{
     const { tags, buttonColor } = this.props
 
     return(
-      <div className="tab_toggle">
+      <>
+			<div class="mt30"></div>
+      <div className="tab_toggle products_cat">
         <div className="container p0">
           <div className="row">
             <ul className="buttons">
@@ -52,6 +54,7 @@ export class TagFilter extends Component{
           </div>
         </div>
       </div>
+      </>
     )
   }
 }

@@ -16,18 +16,12 @@ export class Product extends Component {
           </Link>
           <span className="add_w_list" />
         </div>
-        <div className="head row">
-          <div className="col-xs-7">
-            <Link to={`/product/${product.slug}/`} className="title">
-              { product.name }
-            </Link>
-          </div>
-          <div className="col-xs-5">
-            <span className="price">
-              Rs { product.price }
-            </span>
-          </div>
-          <div className="clearfix" />
+        <div className="head">
+          <Link to={`/product/${product.slug}/`} className="title">
+            <b>{ product.name }</b>
+						<span>Full Leng Shirt</span>
+						<small class="price">{/*<del>500</del>*/}Rs { product.price }</small>
+          </Link>
         </div>
       </div>
     )
