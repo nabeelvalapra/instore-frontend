@@ -139,6 +139,7 @@ header .brand-name {
 
 header .brand-name img {
 	width: 150px;
+	height: 20px;
 }
 
 .wishlist_link, .cart_link {
@@ -257,7 +258,7 @@ header .brand-name img {
 }
 
 .button:hover, .button:focus, .buttons li.active .button {
-	background: #e17658;
+	background: #64605f;
 	color: #fff;
 	text-decoration: none !important;
 	outline: none;

@@ -4,15 +4,22 @@ import PropTypes from 'prop-types'
 
 class Tag extends Component{
   render() {
-    const { name, buttonColor, setTag, tag } = this.props
+    const { name, buttonColor, setTag, tag, activeTag } = this.props
+    let tagClassName  = "col-xs-4 bt"
+    let buttonBG = {}
+    if (activeTag === tag){
+      tagClassName += " active"
+      buttonBG = {background: buttonColor}
+    }
+    console.log(tagClassName)
     return (
-      <li className="col-xs-4 active bt">
+      <li className={tagClassName}>
         <a className="button" href="/"
           onClick={e => {
               e.preventDefault()
               setTag(tag)
           }}
-          style={{background: buttonColor}}
+          style={buttonBG}
         >
           {name}
         </a>
@@ -30,11 +37,10 @@ Tag.propTypes = {
 
 export class TagFilter extends Component{
   render() {
-    const { tags, buttonColor } = this.props
+    const { tags, buttonColor, activeTag } = this.props
 
     return(
       <>
-			<div class="mt30"></div>
       <div className="tab_toggle products_cat">
         <div className="container p0">
           <div className="row">
@@ -47,6 +53,7 @@ export class TagFilter extends Component{
                     buttonColor={buttonColor}
                     setTag={this.props.setTag}
                     tag={tag.slug}
+                    activeTag={activeTag}
                   />
                 )
                })}
