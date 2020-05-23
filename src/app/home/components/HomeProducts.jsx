@@ -14,13 +14,13 @@ export class Product extends Component {
           <Link to={`/product/${product.slug}/`}>
             <img src={product.image} alt="" />
           </Link>
-          <span className="add_w_list" />
+          {/* <span className="add_w_list" /> */}
         </div>
         <div className="head">
           <Link to={`/product/${product.slug}/`} className="title">
             <b>{ product.name }</b>
 						<span>Full Leng Shirt</span>
-						<small className="price">{/*<del>500</del>*/}Rs { product.price }</small>
+						<small className="price" style={{color: this.props.priceColor}}>{/*<del>500</del>*/}Rs { product.price }</small>
           </Link>
         </div>
       </div>
@@ -40,7 +40,7 @@ export class ProductList extends Component{
           <div className="container p0">
             <div className="row">
               {products.map((product) => {
-                return <Product key={product.id} product={product} />
+                return <Product key={product.id} product={product} priceColor={this.props.priceColor}/>
                })}
             </div>
           </div>

@@ -27,7 +27,7 @@ class ProductContainer extends Component{
                 backgroundColor={store.data.style.themeColor}
                 logo={store.data.style.logo}
               />
-              <ProductDetail product={product}/>
+              <ProductDetail product={product} themeColor={store.data.style.themeColor}/>
               </>
             )
             : <p>Fetching products ...</p>

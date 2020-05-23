@@ -7,7 +7,7 @@ import whatsappLogo from '../../assets/images/whatsapp.svg'
 
 class ProductDetail extends Component{
     render() {
-      let { product } = this.props
+      let { product, themeColor } = this.props
       return (
         <>
 	        <section className="wrapp">
@@ -39,7 +39,7 @@ class ProductDetail extends Component{
                     </div>
                     <div className="cart_section">
                       <div className="row">
-                        <div className="col-xs-7">
+                        {/* <div className="col-xs-7"> */}
                           {/* <form action> */}
                           {/* 
                             <span className="quatity_change">
@@ -54,26 +54,25 @@ class ProductDetail extends Component{
                             </span>
                           */}
                           {/* </form> */}
-                        </div>
+                        {/* </div> */}
                         <div>
-                          <span className="price">Rs {product.price}</span>
+                          <span className="price" style={{color: themeColor}}>Price: Rs {product.price}</span>
                         </div>
                       </div>
+                      {/*
                       <div className="buttons row">
-                        {/* 
                         <div className="col-xs-4">
                           <Link className="button2 icon" to="/">
                             <span className="wishlist_link" />
                           </Link>
                         </div>
-                        */}
                         {/* <div className="col-xs-8">
                           <a href className="button3">
                             Add to Cart
                           </a>
                         </div>
-                        */}
                       </div>
+                      */}
                     </div>
                   </div>
                 </div>

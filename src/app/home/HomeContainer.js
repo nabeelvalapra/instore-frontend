@@ -67,6 +67,7 @@ class HomeContainer extends Component{
         <ProductList
           products={product.items}
           selectedTag={selectedTag}
+          priceColor={store.data.style.themeColor}
         />
       )
     } else {

@@ -158,7 +158,7 @@ header .brand-name img {
 
 #content {
 	background: #fff;
-	min-height: 95vh;
+	min-height: 90vh;
 }
 
 .layer {
@@ -496,14 +496,12 @@ header .brand-name img {
 	background: none;
 	text-decoration: none !important;
 }
-.cart_section {
-	padding: 10px 0 0;
-}
 .cart_section .price{
-	font-weight: 700;
-	font-size: 36px;
 	display: block;
-	text-align: right;
+	padding: 10px 0 5px 15px;
+	font-size: 19px;
+	font-weight: 600;
+	margin-bottom: 10px;
 }
 .cart_section .buttons {
 	margin-top: 20px;
