@@ -50,8 +50,6 @@ class HomeContainer extends Component{
           activeTag={selectedTag}
         />
       )
-    } else if (!store.isFetching && !store.error) {
-      headerRender = <p>Fetching store details...</p>  
     } else {
       headerRender = <p>{store.error}</p>
     }
@@ -59,8 +57,6 @@ class HomeContainer extends Component{
     let spotlightRender;
     if(!spotlight.isFetching && spotlight.images){
       spotlightRender = <Spotlights spotlights={spotlight.images}/>
-    } else if (!spotlight.isFetching && !spotlight.images) {
-      spotlightRender = <p>Fetching spotlight details...</p>
     } else {
       spotlightRender = <p>{ spotlight.error }</p>
     }
@@ -73,23 +69,32 @@ class HomeContainer extends Component{
           selectedTag={selectedTag}
         />
       )
-    } else if (!product.isFetching && !product.items){
-      productRender = <p>Fetching product details ...</p>
     } else {
       productRender = <p>{ product.error }</p>
     }
 
-    return (
-      <>
-        {helmetRender}
-        {headerRender}
-		 	  <section id="content">
-          { spotlightRender }
-          { tagBarRender }
-          { productRender }
-        </section>
-      </>
+    let showSpinner = !(
+      (!store.isFetching && !store.data) ||
+      (!spotlight.isFetching && !spotlight.images) ||
+      (!product.isFetching && !product.data)
     )
+    if(showSpinner){
+      return (
+        <p> Loading ... </p>
+      )
+    }else{
+      return (
+        <>
+          {helmetRender}
+          {headerRender}
+		 	    <section id="content">
+            { spotlightRender }
+            { tagBarRender }
+            { productRender }
+          </section>
+        </>
+      )
+    }
   }
 }
 
