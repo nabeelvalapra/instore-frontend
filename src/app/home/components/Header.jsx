@@ -1,30 +1,9 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom';
 
 import '../../../assets/css/bootstrap.min.css';
 import '../../../assets/css/style.css';
-
-// class Menu extends Component{
-//     render() {
-//       return (
-//         <div id="menu">
-//           <ul>
-//             {/*
-//             <li><a href="#">Home</a></li>
-//             <li><a href="#">Products</a></li>
-//             <li><a href="#">Category</a></li>
-//             <li><a href="#">Help</a></li>
-//             <li><a href="#">Payments</a></li>
-//             <li><a href="#">Shipping</a></li>
-//             <li><a href="#">Cancellation &amp; Returns</a></li>
-//             <li><a href="#">FAQ</a></li>
-//             <li><a href="#">Report Infringement</a></li>
-//             */}
-//           </ul>
-//         </div>
-//       )
-//     }
-// }
 
 class Header extends Component{
     render() {
@@ -32,14 +11,14 @@ class Header extends Component{
         <>
           <header style={{background: this.props.backgroundColor}}>
             <div className="container">
-              <button id="menu_toggle">
+              {/* <button id="menu_toggle">
                 <i className="first" />
                 <i className="middle" />
                 <i className="last" />
-              </button>
-              <a className="brand-name" href="index.html">
+              </button> */}
+              <Link to="/" className="brand-name">
                 <img src={this.props.logo} alt="logo" />
-              </a>
+              </Link>
               <div className="right">
                 {/* <a href="#" className="wishlist_link" /> */}
                 {/* <a href="cart.html" className="cart_link" /> */}

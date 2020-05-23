@@ -13,7 +13,10 @@ import { TagFilter } from './components/Tags'
 
 class HomeContainer extends Component{
   componentDidMount() {
-    if(!this.props.store.isFetching && !this.props.store.data){
+    if(
+      (!this.props.store.isFetching && !this.props.store.data) &&
+      (!this.props.spotlight.isFetching && !this.props.spotlight.data)
+    ){
       this.props.fetchStoreDetails()
       this.props.fetchStoreSpotlight()
       this.props.fetchProducts()
