@@ -9,6 +9,7 @@ import Header from './components/Header';
 import Spotlights from './components/Spotlight'
 import { ProductList } from './components/HomeProducts'
 import { TagFilter } from './components/Tags'
+import { getManifestURL } from '../common/manifest'
 
 
 class HomeContainer extends Component{
@@ -21,6 +22,7 @@ class HomeContainer extends Component{
       this.props.fetchStoreSpotlight()
       this.props.fetchProducts()
     }
+    
   }
 
   render() {
@@ -28,7 +30,9 @@ class HomeContainer extends Component{
       store, product, spotlight, selectedTag, setTag
     } = this.props
 
-    let helmetRender=<></>, headerRender=<></>, tagBarRender=<></>;
+    let helmetRender=<></>,
+      headerRender=<></>,
+      tagBarRender=<></>;
     if(!store.isFetching && store.data){
       helmetRender = (
         <Helmet>
@@ -84,6 +88,11 @@ class HomeContainer extends Component{
         <p> Loading ... </p>
       )
     }else{
+      if(store.data){
+        document.querySelector("#instore-manifest-placeholder").setAttribute(
+          "href", getManifestURL(this.props.store.data)
+        )
+      }
       return (
         <>
           {helmetRender}
