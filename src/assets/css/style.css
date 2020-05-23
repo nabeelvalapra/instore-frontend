@@ -271,7 +271,6 @@ header .brand-name img {
 .products_list .img_cover {
 	overflow: hidden;
 	position: relative;
-	min-height: 180px;
 	background: url(../images/loading.gif) no-repeat scroll center center #fff;
 }
 .products_list .img_cover img {
