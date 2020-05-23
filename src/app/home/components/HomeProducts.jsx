@@ -20,7 +20,7 @@ export class Product extends Component {
           <Link to={`/product/${product.slug}/`} className="title">
             <b>{ product.name }</b>
 						<span>Full Leng Shirt</span>
-						<small class="price">{/*<del>500</del>*/}Rs { product.price }</small>
+						<small className="price">{/*<del>500</del>*/}Rs { product.price }</small>
           </Link>
         </div>
       </div>

@@ -11,7 +11,6 @@ class Tag extends Component{
       tagClassName += " active"
       buttonBG = {background: buttonColor}
     }
-    console.log(tagClassName)
     return (
       <li className={tagClassName}>
         <a className="button" href="/"
@@ -66,7 +65,7 @@ export class TagFilter extends Component{
   }
 }
 TagFilter.propTypes = {
-  setTagFilter: PropTypes.func.isRequired,
+  setTag: PropTypes.func.isRequired,
   tags: PropTypes.array.isRequired,
   buttonColor: PropTypes.string.isRequired
 }
