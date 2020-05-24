@@ -8,6 +8,11 @@ export const getManifestURL = store => {
         "theme_color": store.style.themeColor,
         "icons": [
           {
+          "src": "https://api.instore.plus/media/store/product/images/max64.ico",
+          "sizes": "64x64 32x32 24x24 16x16",
+          "type": "image/x-icon"
+          },
+          {
           "src": store.style.favicon,
           "sizes": "144x144",
           "type": "image/png"
