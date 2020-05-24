@@ -16,6 +16,11 @@ export const getManifestURL = store => {
           "src": store.style.favicon,
           "sizes": "144x144",
           "type": "image/png"
+          },
+          {
+            "src": "https://api.instore.plus/media/store/product/images/max512.png",
+            "type": "image/png",
+            "sizes": "512x512"
           }
         ]
     } 
