@@ -24,6 +24,7 @@ export const store = (state=storeInitialState, action) => {
             "name": json.name,
             "email": json.email,
             "style": {
+              "favicon": json.style.favicon,
               "logo": json.style.logo,
               "themeColor": json.style.theme_color,
               "accentColor": json.style.accent_color

@@ -37,7 +37,7 @@ class HomeContainer extends Component{
       helmetRender = (
         <Helmet>
           <title>{store.data.name}</title>
-          <link rel="icon" href={store.data.style.logo} />
+          <link rel="icon" href={store.data.style.favicon} />
         </Helmet>
       )
       headerRender = (
@@ -89,9 +89,8 @@ class HomeContainer extends Component{
       )
     }else{
       if(store.data){
-        document.querySelector("#instore-manifest-placeholder").setAttribute(
-          "href", getManifestURL(this.props.store.data)
-        )
+        document.querySelector('#instore-manifest-placeholder').setAttribute(
+          'href', getManifestURL(this.props.store.data));
       }
       return (
         <>
