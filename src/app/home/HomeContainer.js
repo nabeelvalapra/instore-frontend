@@ -91,6 +91,7 @@ class HomeContainer extends Component{
       if(store.data){
         document.querySelector('#instore-manifest-placeholder').setAttribute(
           'href', getManifestURL(this.props.store.data));
+        console.log(getManifestURL(this.props.store.data))
       }
       return (
         <>
