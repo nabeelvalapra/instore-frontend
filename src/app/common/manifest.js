@@ -8,8 +8,8 @@ export const getManifestURL = store => {
         "theme_color": store.style.themeColor,
         "icons": [
           {
-          "src": "https://api.instore.plus/media/store/product/images/max64.ico",
-          "sizes": "64x64 32x32 24x24 16x16",
+          "src": "https://api.instore.plus/media/store/product/images/max64white.ico",
+          "sizes": "64x64",
           "type": "image/x-icon"
           },
           {
@@ -18,7 +18,7 @@ export const getManifestURL = store => {
           "type": "image/png"
           },
           {
-            "src": "https://api.instore.plus/media/store/product/images/max512.png",
+            "src": "https://api.instore.plus/media/store/product/images/max512white.png",
             "type": "image/png",
             "sizes": "512x512"
           }
