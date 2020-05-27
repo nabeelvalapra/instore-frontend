@@ -9,7 +9,7 @@ import Header from './components/Header';
 import Spotlights from './components/Spotlight'
 import { ProductList } from './components/HomeProducts'
 import { TagFilter } from './components/Tags'
-import { getManifestURL } from '../common/manifest'
+// import { getManifestURL } from '../common/manifest'
 
 
 class HomeContainer extends Component{
@@ -88,11 +88,11 @@ class HomeContainer extends Component{
         <p> Loading ... </p>
       )
     }else{
-      if(store.data){
-        document.querySelector('#instore-manifest-placeholder').setAttribute(
-          'href', getManifestURL(this.props.store.data));
-        console.log(getManifestURL(this.props.store.data))
-      }
+      // if(store.data){
+      //   document.querySelector('#instore-manifest-placeholder').setAttribute(
+      //     'href', getManifestURL(this.props.store.data));
+      //   console.log(getManifestURL(this.props.store.data))
+      // }
       return (
         <>
           {helmetRender}
