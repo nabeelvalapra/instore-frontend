@@ -505,6 +505,12 @@ header .brand-name img {
 .cart_section .buttons {
 	margin-top: 20px;
 }
+.product_details {
+	position: relative;
+	z-index: 2;
+	background: #fff;
+	margin-bottom: 50px;
+}
 .product_details h2 {
 	font-size: 21px;
 	font-weight: 700;
@@ -686,6 +692,24 @@ footer a {
 }
 .details_bottom {
 	text-align: center;
+	padding: 0;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	left: 0;
+	font-size: 0;
+}
+.details_bottom .button5 {
+	width: 30%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.details_bottom .button6 {
+	width: 70%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 }
 .button5 {
 	display: inline-block;
