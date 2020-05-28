@@ -19,7 +19,7 @@ class ProductContainer extends Component{
       const product = (products ? products[productSlug] : null)
 
       return (
-        <div>
+        <>
           {(!productIsFetching && product && store.data)
             ? (
               <>
@@ -32,7 +32,7 @@ class ProductContainer extends Component{
             )
             : <p>Fetching products ...</p>
           }
-        </div>
+        </>
       )
     }
 }
