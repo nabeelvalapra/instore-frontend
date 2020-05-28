@@ -105,3 +105,6 @@ dist
 
 # Package Lock Json
 package-lock.json
+
+# Avoids build dir
+/build
