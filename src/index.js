@@ -39,4 +39,4 @@ render(
 )
 
 
-serviceWorker.register()
+serviceWorker.unregister()
