@@ -41,10 +41,15 @@ export function register(config) {
         // Add some additional logging to localhost, pointing developers to the
         // service worker/PWA documentation.
         navigator.serviceWorker.ready.then(() => {
-          console.log(
-            'This web app is being served cache-first by a service ' +
-              'worker. To learn more, visit https://bit.ly/CRA-PWA'
-          );
+          caches.keys().then(function(names) {
+            for (let name of names)
+              caches.delete(name);
+          });
+          console.log("Deletes all cache")
+          // console.log(
+          //   'This web app is being served cache-first by a service ' +
+          //     'worker. To learn more, visit https://bit.ly/CRA-PWA'
+          // );
         });
       } else {
         // Is not localhost. Just register service worker
