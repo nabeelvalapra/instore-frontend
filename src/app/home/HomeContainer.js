@@ -66,7 +66,7 @@ class HomeContainer extends Component{
     }
 
     let productRender;
-    if(!product.isFetching && product.items){
+    if(!product.isFetching && product.items && store.data){
       productRender = (
         <ProductList
           products={product.items}
