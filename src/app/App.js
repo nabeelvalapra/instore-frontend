@@ -6,6 +6,7 @@ import ScrollMemory from 'react-router-scroll-memory';
 // import requireAuth from './common/requireAuth';
 import HomeContainer from './home/HomeContainer';
 import ProductContainer from './product/ProductContainer';
+import CheckoutContainer from './cart/CheckoutContainer';
 
 
 class App extends Component {
@@ -17,6 +18,7 @@ class App extends Component {
           <Switch>
             <Route exact path='/' component={HomeContainer} />
             {/* <Route path='/product/:productSlug/' component={requireAuth(ProductContainer)}/> */}
+            <Route path='/product/:slug/checkout/' component={CheckoutContainer}/>
             <Route path='/product/:slug/' component={ProductContainer}/>
           </Switch>
         </ConnectedRouter>
